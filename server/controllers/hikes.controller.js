@@ -5,7 +5,7 @@ const User = require('../models/user.model');
 
 module.exports = {
     createHike: (req,res) => {
-        const user = jwt.verify(req.cookies.userToken, secret);
+        const user = jwt.verify(req.cookies.usertoken, secret);
         Hike.create({...req.body, creator:user})
                 .then(newHike => res.status(201).json(newHike))
                 .catch (err => res.status(400).json({message:"Creating hike went wrong",error:err}));
@@ -17,7 +17,7 @@ module.exports = {
             },
 
     getHikesByUser : (req,res) => {
-        const user = jwt.verify(req.cookies.userToken, secret);
+        const user = jwt.verify(req.cookies.usertoken, secret);
         Hike.find({creator:user._id})
             .populate('creator','firstName lastName')
             .then(err =>res.json(err))

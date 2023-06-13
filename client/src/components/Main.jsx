@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from'react-router-dom';
+import axios from 'axios'
 
-const Main = () => {
+const Main = ({user,setUser}) => {
+   
   return (
     <div>
         <div className="col-6 offset-3">
@@ -9,10 +11,13 @@ const Main = () => {
                 <p>Welcome to Outdoorchy!</p>
                 <p>Let's dive into new adventures!</p>
             </div>
+           
             <div className="row">
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
             </div>
+            
+
         </div>
 
     </div>

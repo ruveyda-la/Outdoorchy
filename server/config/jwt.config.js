@@ -8,6 +8,7 @@ module.exports = {
                 res.status(401).json({verified:false});
             }
             else{
+                console.log("payload",payload)
                 next();
             }
         });
