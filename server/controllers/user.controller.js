@@ -44,14 +44,14 @@ module.exports = {
                         errors:{email:{message:'Invalid login attempt'}}
                         
                     });
-                    console.log("ERROR",errors)
+                    // console.log("ERROR",errors)
                 }
             }
             else{
                 res.status(400).json({
                     errors:{email:{message:'Invalid login attempt'}}
                 });
-                console.log(">>>>>>>>>ERROR",errors)
+                // console.log(">>>>>>>>>ERROR",errors)
             }
         }
         catch (err) {

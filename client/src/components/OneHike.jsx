@@ -21,17 +21,17 @@ const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
               .catch((err) => console.log(err))
         },[])
 
-    //   const deleteHandler = (id) => {
-    //       axios.delete(`http://localhost:8000/api/hikes/${id}`)
-    //       .then((res)=> {
-    //         console.log(res.data)
-    //       })
-    //       .catch((err) => console.log(err))
-    //   }
-    //   const editHandler = (object) => {
-    //     setHike(object);
-    //     setIsEdit(true);
-    // }
+      const deleteHandler = (id) => {
+          axios.delete(`http://localhost:8000/api/hikes/${id}`)
+          .then((res)=> {
+            console.log(res.data)
+          })
+          .catch((err) => console.log(err))
+      }
+      const editHandler = (object) => {
+        setHike(object);
+        setIsEdit(true);
+    }
 
   return (
     <div>
@@ -50,13 +50,13 @@ const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
               <p className="card-text small">Level:{hike.level}</p>
               <p className="card-text small">Length:{hike.length} miles</p>
               <p className="card-text small">Elevation gain:{hike.elevation} ft</p>
-              {/* {user._id===hike.creator._id ?
+              {user._id===hike.creator ?
               <div>
                 <Link className="btn btn-warning" onClick={() => editHandler(hike)} to={`/update/${hike._id}`}>Update</Link>
                 <Link className="btn btn-warning" onClick={() => deleteHandler(hike._id)} to={"/home"}>Cancel</Link>
               </div>
               : null
-              }      */}
+              }     
           </div>
       </div>
     </div>
