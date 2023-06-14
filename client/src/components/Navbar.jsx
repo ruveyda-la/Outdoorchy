@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-const Navbar = ({user,setUser}) => {
+const Navbar = ({user,setUser,setIsEdit,setHike}) => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/user-current',{ withCredentials: true })
             .then(res => {
@@ -15,6 +15,12 @@ const Navbar = ({user,setUser}) => {
                 setUser("")
             });
     },[]);
+
+    const createHandler = () => {
+        setIsEdit(false);
+        setHike({});
+
+    }
 
     const logoutHandler = (e) => {
         e.preventDefault();
@@ -35,7 +41,7 @@ return (
                     <Link className="nav-link" to='/home'>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to='/create'>Plan a hike</Link>
+                    <Link className="nav-link" to='/create' onClick={()=>createHandler()}>Plan a hike</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to='/checklist'>Checklist</Link>

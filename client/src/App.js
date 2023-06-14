@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Main from './components/Main';
 import Home from './components/Home';
 import Form from './components/Form';
+import OneHike from './components/OneHike';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/login" element={<Login setUser={setUser}/>} />
         <Route path="/home" element={<Home user={user} setUser={setUser} hikes={hikes} setHikes={setHikes} setIsEdit={setIsEdit} hike={hike} setHike={setHike}/>} />
         <Route path="/create" element={<Form user={user} setUser={setUser} isEdit={isEdit} setIsEdit={setIsEdit} hikes={hikes} hike={hike} setHike={setHike}/>} />
+        <Route path="/view/:id" element={<OneHike user={user} setUser={setUser} hike={hike} setHike={setHike} setIsEdit={setIsEdit}/>}/>
       </Routes>
       </BrowserRouter>
       

@@ -24,7 +24,7 @@ const Login = ({setUser}) => {
         axios.post("http://localhost:8000/api/login", loginInfo,{withCredentials:true})
         .then(res => {
             console.log("RES",res.data);
-            setUser(res.data.user)
+            setUser(res.data)
             navigate("/home")
             
 

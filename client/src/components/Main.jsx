@@ -1,23 +1,18 @@
 import React from 'react';
 import {Link} from'react-router-dom';
-import axios from 'axios'
+import videoBack from '../assets/videoBack.mp4'
 
 const Main = ({user,setUser}) => {
    
   return (
-    <div>
-        <div className="col-6 offset-3">
-            <div className="row">
+    <div className='main'>
+        <div className="overlay"></div>
+        <video src={videoBack} autoPlay loop muted />
+        <div className="content">      
                 <p>Welcome to Outdoorchy!</p>
                 <p>Let's dive into new adventures!</p>
-            </div>
-           
-            <div className="row">
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-            </div>
-            
-
+                <Link style={{color:'antiquewhite',fontWeight:'500'}} to="/login">Login</Link>
+                <Link style={{color:'antiquewhite',fontWeight:'500'}} to="/register">Register</Link>
         </div>
 
     </div>
