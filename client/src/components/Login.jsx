@@ -27,7 +27,7 @@ const Login = ({setUser}) => {
             setUser(res.data)
             navigate("/home")
             
-
+            
         })
         .catch(err => {
             console.log("HERE",err);

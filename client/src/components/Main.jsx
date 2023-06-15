@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from'react-router-dom';
 import videoBack from '../assets/videoBack.mp4'
 
-const Main = ({user,setUser}) => {
+const Main = () => {
    
   return (
     <div className='main'>

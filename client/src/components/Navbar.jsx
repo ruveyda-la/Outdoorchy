@@ -38,19 +38,19 @@ return (
         <div className="col-10 offset-1 ">
             <ul className="nav border-bottom">
                 <li className="nav-item">
-                    <Link className="nav-link" to='/home'>Home</Link>
+                    <Link className="nav-link" to='/home' style={{color:"antiquewhite"}}>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to='/create' onClick={()=>createHandler()}>Plan a hike</Link>
+                    <Link className="nav-link" to='/create' onClick={()=>createHandler()} style={{color:"antiquewhite"}}>Plan a hike</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to='/checklist'>Checklist</Link>
+                    <Link className="nav-link" to='/checklist' style={{color:"antiquewhite"}}>Checklist</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to='/weather'>Current Weather</Link>
+                    <Link className="nav-link" to='/weather' style={{color:"antiquewhite"}}>Current Weather</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to='/' onClick={logoutHandler}>Logout</Link>
+                    <Link className="nav-link" to='/' onClick={logoutHandler} style={{color:"antiquewhite"}}>Logout</Link>
                 </li>
             </ul>
         </div>

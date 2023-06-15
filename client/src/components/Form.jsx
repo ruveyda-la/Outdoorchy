@@ -1,13 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import Navbar from './Navbar';
 import Header from './Header'
 const Form = (props) => {
     const {isEdit,setIsEdit,hike,setHike,user, setUser} = props
     const navigate = useNavigate()
-    const [errors,setErrors] = useState([])
+    if(!user){
+        navigate('/')
+    }
+    setIsEdit(window.location.pathname.includes("update"))
+    const {id} = useParams()
+    
+    useEffect(()=>{
+        if(isEdit){
+          axios.get(`http://localhost:8000/api/hikes/${id}`)
+              .then((res)=> {
+                setHike(res.data)
+              })
+              .catch((err) => console.log(err))
+            }
 
+},[isEdit])
+
+    const [errors,setErrors] = useState([])
+    
     const submitHandler =(e)=>{
         e.preventDefault();
         if(!user){
@@ -53,7 +70,7 @@ const Form = (props) => {
         })
     }
   return (
-    <div>
+    <div style={{background:'linear-gradient(180deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', height:"200vh"}}>
         <div className="row">
             <Header/>
         </div>
@@ -62,49 +79,54 @@ const Form = (props) => {
         </div>
         <div className="row">
             <div className="col-10 offset-1 ">
-            <h3>Plan a hike!</h3>
+                {isEdit?
+            <h3 style={{color:"antiquewhite"}}>Update your hike!</h3>:<h3 style={{color:"antiquewhite",marginTop:"35px"}}>Plan a hike!</h3>
+                }
             </div>
-            <div className="col-6 offset-3 p-10" >
-            <form onSubmit={submitHandler} className="rounded-5 bg-warning">
-                <div className="form-outline form-white my-4">
+            <div className="col-6 offset-3 p-10" style={{backgroundColor:"antiquewhite",borderRadius:"10px"}}>
+            <form onSubmit={submitHandler} className="rounded-5" >
+                <div className="form-outline my-4" >
                     {errors && errors.map((item,idx)=>(
                     <p key={idx} onClose={()=> setErrors([])} style={{color:"red"}}>{item}</p> ))}
                 </div>
-                <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="trail">Trail Name:</label>
-                    <input type="text" className="form-control form-control-lg shadow" name="trail" onChange={changeHandler}/>
+                <div className="form-outline my-4">
+                    <label className="form-label" htmlFor="trail" style={{color:"rgb(103, 88, 60)"}}>Trail Name:</label>
+                    <input type="text" className="form-control form-control-lg shadow" name="trail" value={hike.trail} onChange={changeHandler}/>
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="area">Area/Park:</label>
-                    <input type="text" className="form-control form-control-lg shadow" name="area"  onChange={changeHandler}/>   
+                    <label className="form-label" htmlFor="area" style={{color:"rgb(103, 88, 60)"}}>Area/Park:</label>
+                    <input type="text" className="form-control form-control-lg shadow" name="area" value={hike.area}  onChange={changeHandler}/>   
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="level">Level:</label>
-                    <input type="text" className="form-control form-control-lg shadow" name="level" onChange={changeHandler}/>
+                    <label className="form-label" style={{color:"rgb(103, 88, 60)"}} htmlFor="level">Level:</label>
+                    <input type="text" className="form-control form-control-lg shadow" name="level" value={hike.level} onChange={changeHandler}/>
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="length">Length:</label>
-                    <input type="text" className="form-control form-control-lg shadow" name="length" onChange={changeHandler} />
+                    <label className="form-label" style={{color:"rgb(103, 88, 60)"}} htmlFor="length">Length:</label>
+                    <input type="text" className="form-control form-control-lg shadow" name="length" value={hike.length} onChange={changeHandler} />
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="elevation">Elevation gain:</label>
-                    <input type="text" className="form-control form-control-lg shadow"  name="elevation" onChange={changeHandler}/>
+                    <label className="form-label" style={{color:"rgb(103, 88, 60)"}} htmlFor="elevation">Elevation gain:</label>
+                    <input type="text" className="form-control form-control-lg shadow"  name="elevation" value={hike.elevation} onChange={changeHandler}/>
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="date">Date:</label>
-                    <input type="date" className="form-control form-control-lg shadow"  name="date" onChange={changeHandler}/>
+                    <label className="form-label" style={{color:"rgb(103, 88, 60)"}} htmlFor="date">Date:</label>
+                    <input type="date" className="form-control form-control-lg shadow"  name="date" value={hike.date} onChange={changeHandler}/>
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="time">Time:</label>
-                    <input type="text" className="form-control form-control-lg shadow"  name="time" onChange={changeHandler}/>
+                    <label className="form-label" style={{color:"rgb(103, 88, 60)"}} htmlFor="time">Time:</label>
+                    <input type="text" className="form-control form-control-lg shadow"  name="time" value={hike.time} onChange={changeHandler}/>
                 </div>
                 <div className="form-outline form-white my-4">
-                    <label className="form-label text-white" htmlFor="photoUrl">Photo URL:</label>
-                    <input type="text" className="form-control form-control-lg shadow"  name="photoUrl" onChange={changeHandler}/>
+                    <label className="form-label" style={{color:"rgb(103, 88, 60)"}} htmlFor="photoUrl">Photo URL:</label>
+                    <input type="text" className="form-control form-control-lg shadow"  name="photoUrl" value={hike.photoUrl} onChange={changeHandler}/>
                 </div>
-                {/* < input type="hidden" name="creator" value={user} /> */}
                 <div>
-                    <button className="btn btn-light mb-3 shadow" type="submit">Register</button>
+                    {isEdit?
+                    <button className="btn btn-light mb-3 shadow" style={{color:"rgb(103, 88, 60)"}} type="submit">Update</button>:
+                    <button className="btn btn-light mb-3 shadow" style={{color:"rgb(103, 88, 60)"}} type="submit">Create</button>
+
+                    }
                 </div>
             </form>       
         </div>

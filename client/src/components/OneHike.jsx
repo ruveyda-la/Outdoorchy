@@ -49,7 +49,7 @@ const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
               <p className="card-text small">When:{hike.date} {hike.time}</p>
               <p className="card-text small">Level:{hike.level}</p>
               <p className="card-text small">Length:{hike.length} miles</p>
-              <p className="card-text small">Elevation gain:{hike.elevation} ft</p>
+              <p className="card-text small">Elevation gain:{hike.elevation}ft</p>
               {user._id===hike.creator ?
               <div>
                 <Link className="btn btn-warning" onClick={() => editHandler(hike)} to={`/update/${hike._id}`}>Update</Link>
