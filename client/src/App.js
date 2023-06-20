@@ -8,6 +8,8 @@ import Main from './components/Main';
 import Home from './components/Home';
 import Form from './components/Form';
 import OneHike from './components/OneHike';
+import Checklist from './components/Checklist'
+import Weather from './components/Weather'
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/create" element={<Form user={user} setUser={setUser} isEdit={isEdit} setIsEdit={setIsEdit} hikes={hikes} hike={hike} setHike={setHike}/>} />
         <Route path="/view/:id" element={<OneHike user={user} setUser={setUser} hike={hike} setHike={setHike} setIsEdit={setIsEdit}/>}/>
         <Route path="/update/:id" element={<Form user={user} setUser={setUser} isEdit={isEdit} setIsEdit={setIsEdit} hikes={hikes} hike={hike} setHike={setHike}/>} />
+        <Route path="/checklist" element={<Checklist user={user}/>} />
+        <Route path="/weather" element={<Weather user={user}/>} />
       </Routes>
       </BrowserRouter>
       

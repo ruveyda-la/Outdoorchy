@@ -36,7 +36,7 @@ const Navbar = ({user,setUser,setIsEdit,setHike}) => {
 return (
     <div>
         <div className="col-10 offset-1 ">
-            <ul className="nav border-bottom">
+            <ul className="nav border-bottom border-top">
                 <li className="nav-item">
                     <Link className="nav-link" to='/home' style={{color:"antiquewhite"}}>Home</Link>
                 </li>

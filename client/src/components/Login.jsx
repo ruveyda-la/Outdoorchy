@@ -42,7 +42,7 @@ const Login = ({setUser}) => {
     }
 
 return (
-    <div className="mx-auto" style={{background:'linear-gradient(180deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', height:"100vh",paddingTop:'75px'}}>
+    <div className="mx-auto" style={{background:'linear-gradient(90deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', height:"100vh",paddingTop:'75px'}}>
         <div className="col-6 offset-3" >
             <form onSubmit={submitHandler}>
                 <div className=" text-white mt-20">

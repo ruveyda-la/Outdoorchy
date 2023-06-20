@@ -70,17 +70,17 @@ const Form = (props) => {
         })
     }
   return (
-    <div style={{background:'linear-gradient(180deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', height:"200vh"}}>
+    <div style={{background:'linear-gradient(90deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', paddingBottom:"60px"}}>
         <div className="row">
             <Header/>
         </div>
         <div className="row">
             <Navbar setUser={setUser} user={user}/>
         </div>
-        <div className="row">
-            <div className="col-10 offset-1 ">
+        <div className="row" style={{fontStyle:"oblique"}}>
+            <div>
                 {isEdit?
-            <h3 style={{color:"antiquewhite"}}>Update your hike!</h3>:<h3 style={{color:"antiquewhite",marginTop:"35px"}}>Plan a hike!</h3>
+            <h3 style={{color:"antiquewhite",marginTop:"35px",textAlign:"center"}}>Update your hike!</h3>:<h3 style={{color:"antiquewhite",marginTop:"35px",textAlign:"center"}}>Plan a hike!</h3>
                 }
             </div>
             <div className="col-6 offset-3 p-10" style={{backgroundColor:"antiquewhite",borderRadius:"10px"}}>

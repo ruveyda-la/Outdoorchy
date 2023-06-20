@@ -34,7 +34,7 @@ const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
     }
 
   return (
-    <div>
+    <div style={{background:'linear-gradient(90deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', paddingBottom:"60px"}} >
       <div className="row">
             <Header/>
         </div>
@@ -52,8 +52,8 @@ const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
               <p className="card-text small">Elevation gain:{hike.elevation}ft</p>
               {user._id===hike.creator ?
               <div>
-                <Link className="btn btn-warning" onClick={() => editHandler(hike)} to={`/update/${hike._id}`}>Update</Link>
-                <Link className="btn btn-warning" onClick={() => deleteHandler(hike._id)} to={"/home"}>Cancel</Link>
+                <Link className="btn btn-secondary m-1" onClick={() => editHandler(hike)} to={`/update/${hike._id}`}>Update</Link>
+                <Link className="btn btn-secondary m-1" onClick={() => deleteHandler(hike._id)} to={"/home"}>Cancel</Link>
               </div>
               : null
               }     

@@ -19,7 +19,7 @@ const Home = ({user,setUser,hikes,setHikes,setIsEdit,setHike}) => {
         .catch ((err) => console.log(err))
     })
 return (
-    <div style={{background:'linear-gradient(180deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', height:"200vh"}} >
+    <div style={{background:'linear-gradient(90deg, hsla(183, 21%, 50%, 1) 0%, hsla(39, 26%, 32%, 1) 100%)', paddingBottom:"60px"}}>
         <div className="row">
             <Header/>
         </div>
@@ -27,8 +27,8 @@ return (
             <Navbar user={user} setUser={setUser} setIsEdit={setIsEdit} setHike={setHike}/>
         </div>
         <div className="row">
-            <div className="col-10 offset-1">
-            <h3 style={{color:"antiquewhite"}}>Upcoming Hikes</h3>
+            <div>
+            <h3 style={{color:"antiquewhite",textAlign:"center",marginTop:"10px"}}>Upcoming Hikes</h3>
             </div>
         </div>
 
