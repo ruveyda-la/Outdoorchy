@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link,useNavigate,useParams } from 'react-router-dom'
 import Navbar from './Navbar';
 import Header from './Header'
+import dayjs from 'dayjs'
 
 const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
     const navigate = useNavigate()
@@ -46,7 +47,7 @@ const OneHike = ({user,setUser,hike,setHike, setIsEdit}) => {
           <div className="card-body">
               <h5 className="card-title">{hike.trail}</h5>
               <p className="card-text"><small className="text-muted">({hike.area})</small></p>
-              <p className="card-text small">When:{hike.date} {hike.time}</p>
+              <p className="card-text small">When:{dayjs(hike.date).format("MM/DD/YYYY")} {hike.time}</p>
               <p className="card-text small">Level:{hike.level}</p>
               <p className="card-text small">Length:{hike.length} miles</p>
               <p className="card-text small">Elevation gain:{hike.elevation}ft</p>

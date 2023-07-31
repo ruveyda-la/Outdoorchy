@@ -4,9 +4,11 @@ import Header from './Header'
 import {useNavigate, Link} from 'react-router-dom'
 import { useEffect } from 'react';
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 const Home = ({user,setUser,hikes,setHikes,setIsEdit,setHike}) => {
     const navigate = useNavigate()
+   
    
     useEffect(() => {
         if(!user){
@@ -42,7 +44,7 @@ return (
                     <div className="card-body" style={{color:"rgb(103, 88, 60)"}}>
                         <h5 className="card-title">{item.trail}</h5>
                         <p className="card-text"><small style={{color:"rgb(103, 88, 60)"}}>({item.area})</small></p>
-                        <p className="card-text small">Date:{item.date}</p>
+                        <p className="card-text small">Date:{dayjs(item.date).format("MM/DD/YYYY")}</p>
                         <p className="card-text small">Time:{item.time}</p>
                         <p className="card-text small">Planned by:{item.creator.firstName} {item.creator.lastName}</p>
                         <Link className="small" to={`/view/${item._id}`} style={{color:"rgb(103, 88, 60)"}}>For details</Link>    
