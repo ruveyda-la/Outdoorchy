@@ -33,7 +33,7 @@ function App() {
         <Route path="/view/:id" element={<OneHike user={user} setUser={setUser} hike={hike} setHike={setHike} setIsEdit={setIsEdit}/>}/>
         <Route path="/update/:id" element={<Form user={user} setUser={setUser} isEdit={isEdit} setIsEdit={setIsEdit} hikes={hikes} hike={hike} setHike={setHike}/>} />
         <Route path="/checklist" element={<Checklist user={user}/>} />
-        <Route path="/weather" element={<Weather user={user}/>} />
+        <Route path="/weather" element={<Weather user={user} setUser={setUser} setIsEdit={setIsEdit} setHike={setHike}/>} />
       </Routes>
       </BrowserRouter>
       
